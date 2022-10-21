@@ -1,6 +1,6 @@
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./minilibx -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -I./minilibx -g
 LIBFT = libft/libft.a
 MLX = ./minilibx/libmlx.a
 MLX_DIR = minilibx
@@ -34,6 +34,7 @@ run: all
 clean:
 	make clean -C libft
 	make clean -C $(MLX_DIR)
+	rm -f $(OBJ)
 
 fclean: clean
 	make fclean -C libft
