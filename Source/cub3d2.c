@@ -1,6 +1,6 @@
 // Created by Onur Dursun on 10/17/22.
 
-#include "cub3d(demo).h"
+#include "cub3d2.h"
 
 /*void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
@@ -85,8 +85,8 @@ void	render_map(t_main *main)
 
 	i = 0;
 	y = 0;
-	for (int a = 0; main->map[a]; a++)
-		printf("%s", main->map[a]);
+	//for (int a = 0; main->map[a]; a++)
+	//	printf("%s", main->map[a]);
 	while (i < ft_arraylen(main->map))
 	{
 		j = 0;

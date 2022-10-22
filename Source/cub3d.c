@@ -30,6 +30,48 @@ char	*ft_delchar(const char *str, char c)
 	return (new);
 }
 
+void up_color(t_main *main)
+{
+
+	int x = -1;
+	int y;
+	while (++x < main->r[0])
+	{
+		y = -1;
+		while (++y < main->r[1] / 2)
+			main->img->screen_data[y * main->r[0] + x] = ((main->c[0] & 0xff) << 16) + \
+			((main->c[1] & 0xff) << 8) + (main->c[2] & 0xff);
+	}
+	mlx_put_image_to_window(main->mlx,main->win, main->img->screen, 0, 0);
+}
+
+void down_color(t_main *main)
+{
+	int x;
+	int y = main->r[0] / 2;
+
+	while (y < main->r[0]){
+
+		x = -1;
+		while (++x < main->r[1])
+			main->img->screen_data[y * main->r[1] + x] =  ((main->f[0] & 0xff) << 16) + \
+			((main->f[1] & 0xff) << 8) + (main->f[2] & 0xff);
+		y++;
+
+	}
+	mlx_put_image_to_window(main->mlx,main->win, main->img->screen, 0, 0);
+}
+
+void	ft_draw(t_main *main)
+{
+	main->img = ft_calloc(1, sizeof(t_img));
+	main->img->screen = mlx_new_image(main->mlx, main->r[0], main->r[1]);
+	main->img->screen_data = (int *)mlx_get_data_addr(main->img->screen, &main->img->bpp,
+			&main->img->size_line, &main->img->endian);
+	down_color(main);
+	up_color(main);
+}
+
 void	*read_file(t_main *main, char *av)
 {
 	int		fd;
@@ -81,16 +123,42 @@ void	*read_file(t_main *main, char *av)
 	}
 	main->dir[5] = NULL;
 	main->map[i] = NULL;
+	close(fd);
 	return ((void *)1);
+}
+
+int	close_frame(t_main *main)
+{
+	free(main->dir[0]);
+	free(main->dir[1]);
+	free(main->dir[2]);
+	free(main->dir[3]);
+	free(main->dir[4]);
+	//system("leaks cub3d");
+	mlx_destroy_window(main->mlx, main->win);
+	exit(0);
+	return (0);
+}
+
+int	walk(int keycode, t_main *main)
+{
+	if (keycode == 53)
+		close_frame(main);
+	mlx_clear_window(main->mlx, main->win);
+	return (keycode);
 }
 
 void	ft_open_window(t_main *main, char *av)
 {
-	main = ft_calloc(sizeof(t_main), 1);
+	main = ft_calloc(1, sizeof(t_main));
 	if (!read_file(main, av))
 		exit (1);
 	main->mlx = mlx_init();
 	main->win = mlx_new_window(main->mlx, 1080, 720, "THE FUCKING GAME");
+	ft_draw(main);
+	mlx_hook(main->win, 2, (1L << 0), walk, main);
+	mlx_hook(main->win, 17, 0, close_frame, main);
+	mlx_loop(main->mlx);
 }
 
 int main(int argc, char **argv) {
@@ -100,5 +168,4 @@ int main(int argc, char **argv) {
 		ft_putendl_fd("Error", 2);
 	else
 		ft_open_window(&main, argv[1]);
-
 }

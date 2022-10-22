@@ -23,14 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6bd775c-bd8a-402d-87d6-1f0ef560cadc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Cub3d.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/map.cub" beforeDir="false" afterPath="$PROJECT_DIR$/Maps/map.cub" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/cub3d(demo).c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/cub3d(demo).h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d2.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/cub3d.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/cub3d.o" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,16 +106,26 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/odursun/Desktop/Cub3d",
+    "last_opened_file_path": "/Users/odursun/Desktop/Cub3d/Source",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CLionExternalConfigurable"
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Source" />
+    </key>
+  </component>
   <component name="RunManager" selected="Makefile Application.all">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="all" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="maps/map.cub" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Cub3d" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/cub3d">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -148,11 +156,6 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Makefile Application.all" />
       <item itemvalue="Makefile Application.fclean" />
@@ -177,7 +180,12 @@
       <workItem from="1666016331210" duration="7008000" />
       <workItem from="1666178619137" duration="6316000" />
       <workItem from="1666352854325" duration="2904000" />
-      <workItem from="1666360653039" duration="6568000" />
+      <workItem from="1666360653039" duration="6822000" />
+      <workItem from="1666441451853" duration="978000" />
+      <workItem from="1666442661311" duration="1797000" />
+      <workItem from="1666444849816" duration="1681000" />
+      <workItem from="1666452202647" duration="129000" />
+      <workItem from="1666452345996" duration="2347000" />
     </task>
     <servers />
   </component>

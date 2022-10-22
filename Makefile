@@ -1,9 +1,10 @@
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./minilibx -g
+CFLAGS = -Wall -Wextra -Werror -I./minilibx  -fsanitize=address -g
 LIBFT = libft/libft.a
 MLX = ./minilibx/libmlx.a
 MLX_DIR = minilibx
+RM = rm -rf
 GNL_DIR = gnl
 LFLAGS = -framework AppKit -framework OpenGL -L./minilibx -lmlx
 
@@ -23,22 +24,29 @@ $(GNL_DIR):
 
 $(LIBFT):
 	@if [ ! -d "libft" ]; then git clone https://github.com/onur55-tr/Libft.git libft; fi
-	@make -C libft
+	@if [ ! -f $(LIBFT) ]; then make -C libft; fi
 
 $(MLX):
-	make -C $(MLX_DIR)
+	@if [[ ! -d $(MLX_DIR) ]]; then \
+  		curl -O https://projects.intra.42.fr/uploads/document/document/9232/minilibx_opengl.tgz; \
+		gunzip -c minilibx_opengl.tgz | tar xopf -; \
+		$(RM) minilibx_opengl.tgz; \
+		mv minilibx_opengl_20191021 minilibx; fi
+	@if [[ -d $(MLX_DIR) ]]; then make -C $(MLX_DIR); fi
 
-run: all
+run: re all
 	./cub3d maps/map.cub
 
 clean:
-	make clean -C libft
-	make clean -C $(MLX_DIR)
-	rm -f $(OBJ)
+	@if [[ -d "libft" ]]; then make -C libft clean; fi
+	@if [[ -d $(MLX_DIR) ]]; then make clean -C $(MLX_DIR); fi
+	$(RM) $(OBJ)
 
 fclean: clean
-	make fclean -C libft
-	rm -f $(NAME)
+	@if [[ -f $(NAME) ]]; then $(RM) $(NAME); fi
+	@if [[ -d $(GNL_DIR) ]]; then $(RM) gnl; fi
+	@if [[ -d "libft" ]]; then $(RM) libft; fi
+	@if [[ -d $(MLX_DIR) ]]; then $(RM) $(MLX_DIR); fi
 
 re: fclean all
 

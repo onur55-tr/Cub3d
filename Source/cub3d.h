@@ -15,6 +15,16 @@
 # define PI 3.14159265358979323846
 # define TURN_SPEED 3 * (PI / 180)
 
+typedef struct s_img
+{
+	void	*screen;
+	int		*screen_data;
+	int 	bpp;
+	int 	size_line;
+	int 	endian;
+}	t_img;
+
+
 typedef struct	s_main
 {
 	void	*mlx;
@@ -24,6 +34,7 @@ typedef struct	s_main
 	int 	c[3];
 	char	**dir;
 	char	**map;
+	t_img	*img;
 }				t_main;
 
 #endif //CUB3D_H
