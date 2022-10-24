@@ -23,12 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6bd775c-bd8a-402d-87d6-1f0ef560cadc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/get_image.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/maps.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/movement.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/render.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/textures/new_xpm/floor.xpm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/cub3d(demo).c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d2.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/cub3d(demo).h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d2.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/cub3d.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/cub3d2.c" beforeDir="false" afterPath="$PROJECT_DIR$/gereksiz/cub3d2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/cub3d2.h" beforeDir="false" afterPath="$PROJECT_DIR$/gereksiz/cub3d2.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +112,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/odursun/Desktop/Cub3d/Source",
+    "last_opened_file_path": "/Users/odursun/Desktop/Cub3d/textures/new_xpm",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,7 +123,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/textures/new_xpm" />
       <recent name="$PROJECT_DIR$/Source" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gereksiz" />
     </key>
   </component>
   <component name="RunManager" selected="Makefile Application.all">
@@ -185,7 +195,9 @@
       <workItem from="1666442661311" duration="1797000" />
       <workItem from="1666444849816" duration="1681000" />
       <workItem from="1666452202647" duration="129000" />
-      <workItem from="1666452345996" duration="2347000" />
+      <workItem from="1666452345996" duration="3723000" />
+      <workItem from="1666614088029" duration="369000" />
+      <workItem from="1666619393203" duration="7210000" />
     </task>
     <servers />
   </component>

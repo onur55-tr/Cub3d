@@ -9,6 +9,10 @@ GNL_DIR = gnl
 LFLAGS = -framework AppKit -framework OpenGL -L./minilibx -lmlx
 
 SRC = ./Source/cub3d.c \
+ 		./Source/movement.c \
+ 		./Source/render.c \
+ 		./Source/maps.c \
+ 		./Source/get_image.c \
 		./gnl/get_next_line.c \
 		./gnl/get_next_line_utils.c \
 
@@ -34,7 +38,7 @@ $(MLX):
 		mv minilibx_opengl_20191021 minilibx; fi
 	@if [[ -d $(MLX_DIR) ]]; then make -C $(MLX_DIR); fi
 
-run: re all
+run: all
 	./cub3d maps/map.cub
 
 clean:
