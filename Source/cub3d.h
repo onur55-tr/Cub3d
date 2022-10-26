@@ -15,12 +15,42 @@
 # define PI 3.14159265358979323846
 # define TURN_SPEED 3 * (PI / 180)
 
-# define key_w 13
-# define key_q 12
-# define key_e 14
-# define key_a 0 
-# define key_s 1
-# define key_d 2
+/*
+#ifndef KEY_W
+#  define KEY_W 13
+# endif
+# ifndef KEY_Q
+#  define KEY_Q 12
+# endif
+# ifndef KEY_E
+#  define KEY_E 14
+# endif
+# ifndef KEY_A
+#  define KEY_A 0
+# endif
+# ifndef KEY_S
+#  define KEY_S 1
+# endif
+# ifndef KEY_D
+#  define KEY_D 2
+# endif*/
+
+typedef enum e_key
+{
+	/*
+	KEY_W=13,
+	KEY_Q=12,
+	KEY_A=0,
+	KEY_S=1,
+	KEY_D=2
+	*/
+	KEY_W __attribute__((unused)) = 13,
+	KEY_Q __attribute__((unused)) = 12,
+	KEY_E __attribute__((unused)) = 14,
+	KEY_A __attribute__((unused)) = 0,
+	KEY_S __attribute__((unused)) = 1,
+	KEY_D __attribute__((unused)) = 2
+}	t_key;
 
 typedef struct s_img
 {
@@ -47,6 +77,7 @@ typedef struct	s_main
 	char	**map;
 	void	*block; //sil
 	void	*floor; //sil
+	void	*collactable;
 	t_img	*img;
 }				t_main;
 

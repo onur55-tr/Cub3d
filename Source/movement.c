@@ -6,14 +6,14 @@ int	walk(int keycode, t_main *main)
 {
 	if (keycode == 53)
 		close_frame(main);
-	if (keycode == key_a)
-		main->mx -= 5;
-	if (keycode == key_d)
-		main->mx += 5;
-	if (keycode == key_w)
-		main->my -= 5;
-	if (keycode == key_s)
-		main->my += 5;
+	if (keycode == KEY_A)
+		main->mx -= 10;
+	if (keycode == KEY_D)
+		main->mx += 10;
+	if (keycode == KEY_W)
+		main->my -= 10;
+	if (keycode == KEY_S)
+		main->my += 10;
 	mlx_clear_window(main->mlx, main->win);
 	ft_draw(main);
 	return (keycode);

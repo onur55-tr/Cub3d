@@ -18,19 +18,19 @@ int ft_array_len(char **str)
 
 	i = 0;
 	while(str[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
 void	ft_open_window(t_main *main, char *av)
 {
 	main = ft_calloc(sizeof(t_main), 1);
+	main->img = ft_calloc(1, sizeof(t_img));
 	if (!read_file(main, av))
 		exit (1);
 	main->mlx = mlx_init();
-	main->win = mlx_new_window(main->mlx, (ft_strlen(main->map[0]) - 1) * 64, ft_array_len(main->map) * 64, "THE FUCKING GAME");
+	main->win = mlx_new_window(main->mlx, (int)(ft_strlen(main->map[0]) - 1) * 64,
+			ft_array_len(main->map) * 64, "THE FUCKING GAME");
 	get_image(main);
 	ft_draw(main);
 	mlx_hook(main->win, 2, (1L << 0), walk, main);

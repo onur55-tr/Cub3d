@@ -11,5 +11,6 @@ void	get_image(t_main *main)
 	y = 0;
 	main->block = mlx_xpm_file_to_image(main->mlx, main->dir[0], &x, &y);
 	main->floor = mlx_xpm_file_to_image(main->mlx, main->dir[1], &x, &y);
+	main->collactable = mlx_xpm_file_to_image(main->mlx, main->dir[4], &x, &y);
 
 }
