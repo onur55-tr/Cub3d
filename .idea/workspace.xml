@@ -24,11 +24,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e6bd775c-bd8a-402d-87d6-1f0ef560cadc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/cub3d.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/get_image.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/get_image.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/movement.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/movement.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/render.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/render.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gereksiz/cub3d2.c" beforeDir="false" afterPath="$PROJECT_DIR$/gereksiz/cub3d2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gereksiz/cub3d2.h" beforeDir="false" afterPath="$PROJECT_DIR$/gereksiz/cub3d2.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +50,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Makefile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Maps/map.cub" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/cub3d.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/cub3d.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/maps.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/movement.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/render.c" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="pn1rj9yq" />
@@ -112,7 +123,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor"
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -155,6 +166,11 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Makefile Application.all" />
       <item itemvalue="Makefile Application.fclean" />
@@ -188,7 +204,9 @@
       <workItem from="1666614088029" duration="369000" />
       <workItem from="1666619393203" duration="7588000" />
       <workItem from="1666627524215" duration="87000" />
-      <workItem from="1666780648702" duration="5128000" />
+      <workItem from="1666780648702" duration="7911000" />
+      <workItem from="1666794606221" duration="4693000" />
+      <workItem from="1666871088480" duration="6555000" />
     </task>
     <servers />
   </component>

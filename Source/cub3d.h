@@ -70,14 +70,15 @@ typedef struct	s_main
 	int 	r[2];
 	int		f[3];
 	int 	c[3];
-	int 	mx; //silin
-	int 	my; // silin
-	double	zoom ; //silin
+	int		mx;
+	int		my;
+	int		zoom;
 	char	**dir;
 	char	**map;
 	void	*block; //sil
 	void	*floor; //sil
 	void	*collactable;
+	int 	angle;
 	t_img	*img;
 }				t_main;
 

@@ -72,6 +72,7 @@ typedef struct	s_main
 	double	posY;
 	double	dirX;
 	double	dirY;
+	double	angle;
 	double	planeX;
 	double	planeY;
 

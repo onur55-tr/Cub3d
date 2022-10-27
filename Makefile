@@ -31,26 +31,26 @@ $(LIBFT):
 	@if [ ! -f $(LIBFT) ]; then make -C libft; fi
 
 $(MLX):
-	@if [[ ! -d $(MLX_DIR) ]]; then \
+	@if [ ! -d $(MLX_DIR) ]; then \
   		curl -O https://projects.intra.42.fr/uploads/document/document/9232/minilibx_opengl.tgz; \
 		gunzip -c minilibx_opengl.tgz | tar xopf -; \
 		$(RM) minilibx_opengl.tgz; \
 		mv minilibx_opengl_20191021 minilibx; fi
-	@if [[ -d $(MLX_DIR) ]]; then make -C $(MLX_DIR); fi
+	@if [ -d $(MLX_DIR) ]; then make -C $(MLX_DIR); fi
 
 run: all
 	./cub3d maps/map.cub
 
 clean:
-	@if [[ -d "libft" ]]; then make -C libft clean; fi
-	@if [[ -d $(MLX_DIR) ]]; then make clean -C $(MLX_DIR); fi
+	@if [ -d "libft" ]; then make -C libft clean; fi
+	@if [ -d $(MLX_DIR) ]; then make clean -C $(MLX_DIR); fi
 	$(RM) $(OBJ)
 
 fclean: clean
-	@if [[ -f $(NAME) ]]; then $(RM) $(NAME); fi
-	@if [[ -d $(GNL_DIR) ]]; then $(RM) gnl; fi
-	@if [[ -d "libft" ]]; then $(RM) libft; fi
-	@if [[ -d $(MLX_DIR) ]]; then $(RM) $(MLX_DIR); fi
+	@if [ -f $(NAME) ]; then $(RM) $(NAME); fi
+	@if [ -d $(GNL_DIR) ]; then $(RM) gnl; fi
+	@if [ -d "libft" ]; then $(RM) libft; fi
+	@if [ -d $(MLX_DIR) ]; then $(RM) $(MLX_DIR); fi
 
 re: fclean all
 

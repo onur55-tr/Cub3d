@@ -43,22 +43,39 @@ static void down_color(t_main *main)
 void	put_player(t_main *main, int px, int py)
 {
 	//printf("%d %d\n", px, py);
-	int	x;
+	(void)px;
+	(void)py;
+	int i;
+/*	int	x;
 	int y;
 
 	x = main->r[0] / 2;
 	y = main->r[1] / 2;
-	px = -1;
-	py = -1;
+	main->angle  = 60;
+ * i = 0;
 	while (++px < (int)(ft_strlen(main->map[0]) - 1) * 64)
 	{
+		py = -1;
 		while (++py < (ft_array_len(main->map) * 64))
 		{
-			if ((px > x - 32 + main->mx && px <  x + 32 + main->mx)
-				&&  (py > y - 32 + main->my && py <  y + 32 + main->my))
-				mlx_pixel_put(main->mlx, main->win, px, py, 0x0000ffff);
+			if ((px > x -1  + main->mx && px <  x + 1 + main->mx)
+			 &&  (py > y - 20 + main->my && py <  y + 20 + main->my))
+				mlx_pixel_put(main->mlx, main->win, px, py,  0xff);
+			if ((px > x -1  + main->mx && px <  x + 1 + main->mx)
+				&&  (py > y - 40 + main->my && py <  y + 40 + main->my))
+			{
+				mlx_pixel_put(main->mlx, main->win, px - i, py + main->angle - i,  0xff);
+				mlx_pixel_put(main->mlx, main->win, px + i, py + main->angle - i,  0xff);
+				i++;
+				main->angle--;
+			}
 		}
-		py = -1;
+	}*/
+	i = -1;
+	while (++i < 60) {
+		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle) * (PI / 180))), main->my + (i * sin((main->angle) * (PI / 180))), 0xff0000);
+		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle + 30) * (PI / 180))), main->my + (i * sin((main->angle + 30) * (PI / 180))), 0x00ff00);
+		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle - 30) * (PI / 180))), main->my + (i * sin((main->angle - 30) * (PI / 180))), 0xff);
 	}
 }
 

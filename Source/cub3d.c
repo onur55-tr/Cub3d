@@ -25,6 +25,9 @@ int ft_array_len(char **str)
 void	ft_open_window(t_main *main, char *av)
 {
 	main = ft_calloc(sizeof(t_main), 1);
+	main->mx = 300;
+	main->my=300;
+	main->angle = 270;
 	main->img = ft_calloc(1, sizeof(t_img));
 	if (!read_file(main, av))
 		exit (1);
@@ -41,9 +44,8 @@ void	ft_open_window(t_main *main, char *av)
 
 int main(int argc, char **argv) {
 	t_main main;
-	main.mx = 0;
-	main.my=0;
-	
+
+
 
 	if (argc != 2)
 		ft_putendl_fd("Error", 2);
