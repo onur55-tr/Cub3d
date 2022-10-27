@@ -37,16 +37,9 @@
 
 typedef enum e_key
 {
-	/*
-	KEY_W=13,
-	KEY_Q=12,
-	KEY_A=0,
-	KEY_S=1,
-	KEY_D=2
-	*/
 	KEY_W __attribute__((unused)) = 13,
-	KEY_Q __attribute__((unused)) = 12,
-	KEY_E __attribute__((unused)) = 14,
+	//KEY_Q __attribute__((unused)) = 12,
+	//KEY_E __attribute__((unused)) = 14,
 	KEY_A __attribute__((unused)) = 0,
 	KEY_S __attribute__((unused)) = 1,
 	KEY_D __attribute__((unused)) = 2
@@ -70,9 +63,8 @@ typedef struct	s_main
 	int 	r[2];
 	int		f[3];
 	int 	c[3];
-	int		mx;
-	int		my;
-	int		zoom;
+	double		mx;
+	double 		my;
 	char	**dir;
 	char	**map;
 	void	*block; //sil
