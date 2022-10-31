@@ -1,9 +1,9 @@
 // Created by Onur Dursun on 10/24/22.
 
 #include "cub3d.h"
-static	int color_bitwise(int r, int g, int b)
+static int	color_bitwise(int r, int g, int b)
 {
-	int rgb;
+	int	rgb;
 
 	rgb = ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
 	return (rgb);
@@ -11,33 +11,34 @@ static	int color_bitwise(int r, int g, int b)
 
 static void	up_color(t_main *main)
 {
-
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = -1;
 	while (++x < WIDTH)
 	{
 		y = -1;
 		while (++y < HEIGHT / 2)
-			main->img->screen_data[y * WIDTH + x] = color_bitwise(main->c[0], main->c[1], main->c[2]);
+			main->img->screen_data[y * WIDTH + x] = color_bitwise(main->c[0],
+					main->c[1], main->c[2]);
 	}
 	mlx_put_image_to_window(main->mlx,main->win, main->img->screen, 0, 0);
 }
 
-static void down_color(t_main *main)
+static void	down_color(t_main *main)
 {
 	int px;
 	int py;
 
 	px = -1;
-	while (++px < (int)(ft_strlen(main->map[0]) - 1) * 64)
+	while (++px < (int)(ft_strlen(main->map[0]) - 1) *64)
 	{
 		py = -1;
 		while (++py < (ft_array_len(main->map) * 64))
-			main->img->screen_data[py * HEIGHT + px] = color_bitwise(main->f[0], main->f[1], main->f[2]);
+			main->img->screen_data[py * HEIGHT + px] = color_bitwise(main->f[0],
+					main->f[1], main->f[2]);
 	}
-	mlx_put_image_to_window(main->mlx,main->win, main->img->screen, 0, 0);
+	mlx_put_image_to_window(main->mlx, main->win, main->img->screen, 0, 0);
 }
 
 void	put_player(t_main *main)
@@ -45,7 +46,8 @@ void	put_player(t_main *main)
 	int i;
 
 	i = -1;
-	while (++i < 60) {
+	while (++i < 60)
+	{
 		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle) * (PI / 180))), main->my + (i * sin((main->angle) * (PI / 180))), 0xff0000);
 		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle + 30) * (PI / 180))), main->my + (i * sin((main->angle + 30) * (PI / 180))), 0x00ff00);
 		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle - 30) * (PI / 180))), main->my + (i * sin((main->angle - 30) * (PI / 180))), 0xff);
@@ -63,9 +65,11 @@ void	render_map(t_main *main)
 		while (main->map[main->v.r_i][++main->v.r_j])
 		{
 			if (main->map[main->v.r_i][main->v.r_j] == '1')
-				mlx_put_image_to_window(main->mlx, main->win, main->block, main->v.r_x, main->v.r_y);
+				mlx_put_image_to_window(main->mlx, main->win, main->block,
+					main->v.r_x, main->v.r_y);
 			if (main->map[main->v.r_i][main->v.r_j] == '2')
-				mlx_put_image_to_window(main->mlx, main->win, main->collactable, main->v.r_x, main->v.r_y);
+				mlx_put_image_to_window(main->mlx, main->win, main->collactable,
+					main->v.r_x, main->v.r_y);
 			main->v.r_x += 64;
 		}
 		main->v.r_y += 64;

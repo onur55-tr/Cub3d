@@ -41,21 +41,22 @@ void	*read_file(t_main *main, char *av)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
+	ft_contorller(av);
 	line = get_next_line(fd);
 	main->map = (char **)malloc(sizeof(char *) * 1000);
 	main->dir = (char **)malloc(sizeof(char *) * 1000);
 	while (line)
 	{
 		if (line[0] == 'N' && line[1] == 'O')
-			main->dir[0] = ft_strtrim(line + 3, "\n");
+			main->dir[0] = ft_new_strtrim(line, main);
 		if (line[0] == 'S' && line[1] == 'O')
-			main->dir[1] = ft_strtrim(line + 3, "\n");
+			main->dir[1] = ft_new_strtrim(line, main);
 		if (line[0] == 'W' && line[1] == 'E')
-			main->dir[2] = ft_strtrim(line + 3, "\n");
+			main->dir[2] = ft_new_strtrim(line, main);
 		if (line[0] == 'E' && line[1] == 'A')
-			main->dir[3] = ft_strtrim(line + 3, "\n");
-		if (line[0] == 'S' && line[1] == ' ')
-			main->dir[4] = ft_strtrim(line + 2, "\n");
+			main->dir[3] = ft_new_strtrim(line, main);
+		if (line[0] == 'S')
+			main->dir[4] = ft_new_strtrim(line, main);
 		if (line[0] == 'F')
 		{
 			main->f[0] = ft_atoi(line + 2);

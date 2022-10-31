@@ -17,6 +17,7 @@
 # define HEIGHT 720
 # define WIDTH 1080
 
+
 typedef enum e_key
 {
 	KEY_W __attribute__((unused)) = 13,
@@ -73,6 +74,8 @@ void	*read_file(t_main *main, char *av);
 void	render_map(t_main *main);
 void	get_image(t_main *main);
 void	put_player(t_main *main);
-int ft_array_len(char **str);
+int		ft_array_len(char **str);
+int		ft_contorller(char *av);
+char	*ft_new_strtrim(char *line, t_main *main);
 
 #endif //CUB3D_H

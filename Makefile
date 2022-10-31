@@ -1,6 +1,6 @@
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./minilibx  -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -I./minilibx -fsanitize=address -g
 LIBFT = libft/libft.a
 MLX = ./minilibx/libmlx.a
 MLX_DIR = minilibx
@@ -13,6 +13,8 @@ SRC = ./Source/cub3d.c \
  		./Source/render.c \
  		./Source/maps.c \
  		./Source/get_image.c \
+ 		./Source/ft_controller.c \
+ 		./Source/ft_utils.c \
 		./gnl/get_next_line.c \
 		./gnl/get_next_line_utils.c \
 

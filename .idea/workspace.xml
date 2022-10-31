@@ -8,12 +8,12 @@
 }</component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="Cub3d" targetName="re" />
-      <config projectName="Cub3d" targetName="gnl" />
-      <config projectName="Cub3d" targetName="all" />
-      <config projectName="Cub3d" targetName="fclean" />
-      <config projectName="Cub3d" targetName="cub3d" />
-      <config projectName="Cub3d" targetName="run" />
+      <config projectName="1" targetName="all" />
+      <config projectName="1" targetName="re" />
+      <config projectName="1" targetName="gnl" />
+      <config projectName="1" targetName="fclean" />
+      <config projectName="1" targetName="cub3d" />
+      <config projectName="1" targetName="run" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -23,8 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6bd775c-bd8a-402d-87d6-1f0ef560cadc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/ft_utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maps/map.cub" beforeDir="false" afterPath="$PROJECT_DIR$/Maps/map.cub" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/cub3d.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ft_controller.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ft_controller.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/maps.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/maps.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/render.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/render.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,14 +70,14 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="Cub3d" />
+              <option name="name" value="1" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="Cub3d" />
+                <option name="name" value="1" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
@@ -111,13 +118,13 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/odursun/Desktop/Cub3d/textures/new_xpm",
+    "last_opened_file_path": "/Users/odursun/Desktop/1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -130,39 +137,39 @@
     </key>
   </component>
   <component name="RunManager" selected="Makefile Application.all">
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="maps/map.cub" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Cub3d" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/cub3d">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="maps/map.cub" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="1" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/cub3d">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cub3d" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Cub3d" TARGET_NAME="cub3d" CONFIG_NAME="cub3d" version="1">
+    <configuration name="cub3d" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="1" TARGET_NAME="cub3d" CONFIG_NAME="cub3d" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Cub3d" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
+    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="1" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gnl" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Cub3d" TARGET_NAME="gnl" CONFIG_NAME="gnl" version="1">
+    <configuration name="gnl" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="1" TARGET_NAME="gnl" CONFIG_NAME="gnl" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Cub3d" TARGET_NAME="re" CONFIG_NAME="re" version="1">
+    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="1" TARGET_NAME="re" CONFIG_NAME="re" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="run" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Cub3d" TARGET_NAME="run" CONFIG_NAME="run" version="1">
+    <configuration name="run" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="1" TARGET_NAME="run" CONFIG_NAME="run" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -201,6 +208,7 @@
       <workItem from="1666780648702" duration="7911000" />
       <workItem from="1666794606221" duration="4693000" />
       <workItem from="1666871088480" duration="7135000" />
+      <workItem from="1667222337667" duration="5916000" />
     </task>
     <servers />
   </component>
@@ -217,5 +225,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/maps.c</url>
+          <line>47</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
