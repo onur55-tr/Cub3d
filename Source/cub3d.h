@@ -14,26 +14,8 @@
 
 # define PI 3.14159265358979323846
 # define TURN_SPEED 3 * (PI / 180)
-
-/*
-#ifndef KEY_W
-#  define KEY_W 13
-# endif
-# ifndef KEY_Q
-#  define KEY_Q 12
-# endif
-# ifndef KEY_E
-#  define KEY_E 14
-# endif
-# ifndef KEY_A
-#  define KEY_A 0
-# endif
-# ifndef KEY_S
-#  define KEY_S 1
-# endif
-# ifndef KEY_D
-#  define KEY_D 2
-# endif*/
+# define HEIGHT 720
+# define WIDTH 1080
 
 typedef enum e_key
 {
@@ -44,6 +26,16 @@ typedef enum e_key
 	KEY_S __attribute__((unused)) = 1,
 	KEY_D __attribute__((unused)) = 2
 }	t_key;
+
+typedef struct s_var
+{
+	int	px;
+	int	py;
+	int	r_i;
+	int	r_j;
+	int	r_x;
+	int	r_y;
+}	t_var;
 
 typedef struct s_img
 {
@@ -60,7 +52,6 @@ typedef struct	s_main
 {
 	void	*mlx;
 	void	*win;
-	int 	r[2];
 	int		f[3];
 	int 	c[3];
 	double		mx;
@@ -70,8 +61,9 @@ typedef struct	s_main
 	void	*block; //sil
 	void	*floor; //sil
 	void	*collactable;
-	int 	angle;
+	int		angle;
 	t_img	*img;
+	t_var	v;
 }				t_main;
 
 int		close_frame(t_main *main);
@@ -80,7 +72,7 @@ void	ft_draw(t_main *main);
 void	*read_file(t_main *main, char *av);
 void	render_map(t_main *main);
 void	get_image(t_main *main);
-void	put_player(t_main *main, int px, int py);
+void	put_player(t_main *main);
 int ft_array_len(char **str);
 
 #endif //CUB3D_H

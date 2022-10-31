@@ -32,7 +32,7 @@ void	ft_open_window(t_main *main, char *av)
 	if (!read_file(main, av))
 		exit (1);
 	main->mlx = mlx_init();
-	main->win = mlx_new_window(main->mlx, (int)(ft_strlen(main->map[0]) - 1) * 64,
+	main->win = mlx_new_window(main->mlx, (int)(ft_strlen(main->map[0]) - 1) *64,
 			ft_array_len(main->map) * 64, "THE FUCKING GAME");
 	get_image(main);
 	ft_draw(main);
@@ -44,8 +44,6 @@ void	ft_open_window(t_main *main, char *av)
 
 int main(int argc, char **argv) {
 	t_main main;
-
-
 
 	if (argc != 2)
 		ft_putendl_fd("Error", 2);

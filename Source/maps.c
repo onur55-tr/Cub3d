@@ -44,14 +44,8 @@ void	*read_file(t_main *main, char *av)
 	line = get_next_line(fd);
 	main->map = (char **)malloc(sizeof(char *) * 1000);
 	main->dir = (char **)malloc(sizeof(char *) * 1000);
-
 	while (line)
 	{
-		if (line[0] == 'R')
-		{
-			main->r[0] = ft_atoi(line + 2);
-			main->r[1] = ft_atoi(line + 7);
-		}
 		if (line[0] == 'N' && line[1] == 'O')
 			main->dir[0] = ft_strtrim(line + 3, "\n");
 		if (line[0] == 'S' && line[1] == 'O')

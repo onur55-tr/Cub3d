@@ -16,11 +16,11 @@ static void	up_color(t_main *main)
 	int y;
 
 	x = -1;
-	while (++x < main->r[0])
+	while (++x < WIDTH)
 	{
 		y = -1;
-		while (++y < main->r[1] / 2)
-			main->img->screen_data[y * main->r[0] + x] = color_bitwise(main->c[0], main->c[1], main->c[2]);
+		while (++y < HEIGHT / 2)
+			main->img->screen_data[y * WIDTH + x] = color_bitwise(main->c[0], main->c[1], main->c[2]);
 	}
 	mlx_put_image_to_window(main->mlx,main->win, main->img->screen, 0, 0);
 }
@@ -35,17 +35,15 @@ static void down_color(t_main *main)
 	{
 		py = -1;
 		while (++py < (ft_array_len(main->map) * 64))
-			main->img->screen_data[py * main->r[1] + px] = color_bitwise(main->f[0], main->f[1], main->f[2]);
+			main->img->screen_data[py * HEIGHT + px] = color_bitwise(main->f[0], main->f[1], main->f[2]);
 	}
 	mlx_put_image_to_window(main->mlx,main->win, main->img->screen, 0, 0);
 }
 
-void	put_player(t_main *main, int px, int py)
+void	put_player(t_main *main)
 {
-	//printf("%d %d\n", px, py);
-	(void)px;
-	(void)py;
 	int i;
+
 	i = -1;
 	while (++i < 60) {
 		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle) * (PI / 180))), main->my + (i * sin((main->angle) * (PI / 180))), 0xff0000);
@@ -56,38 +54,32 @@ void	put_player(t_main *main, int px, int py)
 
 void	render_map(t_main *main)
 {
-	int	x;
-	int y;
-	int i;
-	int j;
-
-	x = 0;
-	y = 0;
-	i = -1;
-	j = -1;
-	while(main->map[++i])
+	main->v.r_x = 0;
+	main->v.r_y = 0;
+	main->v.r_i = -1;
+	main->v.r_j = -1;
+	while (main->map[++main->v.r_i])
 	{
-		while (main->map[i][++j])
+		while (main->map[main->v.r_i][++main->v.r_j])
 		{
-			if(main->map[i][j] == '1')
-				mlx_put_image_to_window(main->mlx, main->win, main->block, x, y);
-			if (main->map[i][j] == '2')
-				mlx_put_image_to_window(main->mlx, main->win, main->collactable, x, y);
-			x += 64;
+			if (main->map[main->v.r_i][main->v.r_j] == '1')
+				mlx_put_image_to_window(main->mlx, main->win, main->block, main->v.r_x, main->v.r_y);
+			if (main->map[main->v.r_i][main->v.r_j] == '2')
+				mlx_put_image_to_window(main->mlx, main->win, main->collactable, main->v.r_x, main->v.r_y);
+			main->v.r_x += 64;
 		}
-		y += 64;
-		j = -1;
-		x = 0;
+		main->v.r_y += 64;
+		main->v.r_j = -1;
+		main->v.r_x = 0;
 	}
-	put_player(main, x, y);
+	put_player(main);
 }
 
 void	ft_draw(t_main *main)
 {
-	main->img->screen = mlx_new_image(main->mlx, main->r[0], main->r[1]);
+	main->img->screen = mlx_new_image(main->mlx, WIDTH, HEIGHT);
 	main->img->screen_data = (int *)mlx_get_data_addr(main->img->screen, &main->img->bpp,
-													  &main->img->size_line, &main->img->endian);
-
+			&main->img->size_line, &main->img->endian);
 	down_color(main);
 	up_color(main);
 	render_map(main);
