@@ -55,7 +55,7 @@ void	*read_file(t_main *main, char *av)
 			main->dir[2] = ft_new_strtrim(line, main);
 		if (line[0] == 'E' && line[1] == 'A')
 			main->dir[3] = ft_new_strtrim(line, main);
-		if (line[0] == 'S')
+		if (line[0] == 'S' && !ft_isalnum(line[1]))
 			main->dir[4] = ft_new_strtrim(line, main);
 		if (line[0] == 'F')
 		{
@@ -75,9 +75,11 @@ void	*read_file(t_main *main, char *av)
 			free(line);
 		line = get_next_line(fd);
 	}
+	if (line)
+		free(line);
 	main->dir[5] = NULL;
 	main->map[i] = NULL;
-	ft_variable_controller(main);
 	close(fd);
+	ft_variable_controller(main);
 	return ((void *)1);
 }

@@ -41,7 +41,7 @@ char	*ft_new_strtrim(const char *line, t_main *main)
 	}
 	if (line[i] == '\n')
 		ft_clear(main);
-	//char *ret = ft_substr(line, i, ft_strlen(line) - i - 1);
-	//printf("_{%s}\n", ret);
+	char *ret = ft_substr(line, i, ft_strlen(line) - i - 1);
+	printf("_{%s}\n", ret);
 	return (ft_substr(line, i, ft_strlen(line) - i - 1));
 }

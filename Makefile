@@ -1,6 +1,6 @@
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./minilibx -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -I./minilibx -fsanitize=adress -g
 LIBFT = libft/libft.a
 MLX = ./minilibx/libmlx.a
 MLX_DIR = minilibx
@@ -39,6 +39,8 @@ $(MLX):
 		mv minilibx_opengl_20191021 minilibx; fi
 	@if [ -d $(MLX_DIR) ]; then make -C $(MLX_DIR); fi
 
+leaks:
+	#@valgrind --leak-check=full --show-leak-kinds=all
 run: all
 	./cub3d Maps/map.cub
 

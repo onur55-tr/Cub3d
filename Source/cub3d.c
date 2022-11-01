@@ -2,19 +2,18 @@
 
 int	close_frame(t_main *main)
 {
-	if (main->dir[0])
+	//if (main->dir[0])
 		free(main->dir[0]);
-	if (main->dir[1])
+	//if (main->dir[1])
 		free(main->dir[1]);
-	if (main->dir[2])
+	//if (main->dir[2])
 		free(main->dir[2]);
-	if (main->dir[3])
+	//if (main->dir[3])
 		free(main->dir[3]);
-	if (main->dir[4])
+	//if (main->dir[4])
 		free(main->dir[4]);
+	mlx_destroy_window(main->mlx, main->win);
 	//system("leaks cub3d");
-	if (main->mlx)
-		mlx_destroy_window(main->mlx, main->win);
 	exit(0);
 	return (0);
 }
@@ -28,7 +27,7 @@ int	ft_array_len(char **str)
 	return (i);
 }
 
-void 	ft_init(t_main **main)
+void	ft_init(t_main **main)
 {
 	*main = ft_calloc(sizeof(t_main), 1);
 	(*main)->map = (char **)ft_calloc(sizeof(char *), 1000);

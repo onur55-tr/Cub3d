@@ -48,14 +48,21 @@ void	put_player(t_main *main)
 	i = -1;
 	while (++i < 60)
 	{
-		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle) * (PI / 180))), main->my + (i * sin((main->angle) * (PI / 180))), 0xff0000);
-		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle + 30) * (PI / 180))), main->my + (i * sin((main->angle + 30) * (PI / 180))), 0x00ff00);
-		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle - 30) * (PI / 180))), main->my + (i * sin((main->angle - 30) * (PI / 180))), 0xff);
+		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle)
+					* (PI / 180))), main->my + (i * sin((main->angle) * (PI / 180))), 0xff0000);
+		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle + \
+		30) * (PI / 180))), main->my + (i * sin((main->angle + 30) * (PI / 180))), 0x00ff00);
+		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle - \
+		30) * (PI / 180))), main->my + (i * sin((main->angle - 30) * (PI / 180))), 0xff);
 	}
 }
 
 void	render_map(t_main *main)
 {
+	main->v->r_i = 0;
+	main->v->r_j = 0;
+	main->v->r_x = 0;
+	main->v->r_y = 0;
 	while (main->map[main->v->r_i])
 	{
 		while (main->map[main->v->r_i][main->v->r_j])
