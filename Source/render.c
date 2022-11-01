@@ -43,7 +43,7 @@ static void	down_color(t_main *main)
 
 void	put_player(t_main *main)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < 60)
@@ -56,25 +56,23 @@ void	put_player(t_main *main)
 
 void	render_map(t_main *main)
 {
-	main->v.r_x = 0;
-	main->v.r_y = 0;
-	main->v.r_i = -1;
-	main->v.r_j = -1;
-	while (main->map[++main->v.r_i])
+	while (main->map[main->v->r_i])
 	{
-		while (main->map[main->v.r_i][++main->v.r_j])
+		while (main->map[main->v->r_i][main->v->r_j])
 		{
-			if (main->map[main->v.r_i][main->v.r_j] == '1')
+			if (main->map[main->v->r_i][main->v->r_j] == '1')
 				mlx_put_image_to_window(main->mlx, main->win, main->block,
-					main->v.r_x, main->v.r_y);
-			if (main->map[main->v.r_i][main->v.r_j] == '2')
+					main->v->r_x, main->v->r_y);
+			if (main->map[main->v->r_i][main->v->r_j] == '2')
 				mlx_put_image_to_window(main->mlx, main->win, main->collactable,
-					main->v.r_x, main->v.r_y);
-			main->v.r_x += 64;
+					main->v->r_x, main->v->r_y);
+			main->v->r_x += 64;
+			main->v->r_j++;
 		}
-		main->v.r_y += 64;
-		main->v.r_j = -1;
-		main->v.r_x = 0;
+		main->v->r_y += 64;
+		main->v->r_j = 0;
+		main->v->r_x = 0;
+		main->v->r_i++;
 	}
 	put_player(main);
 }
@@ -82,8 +80,8 @@ void	render_map(t_main *main)
 void	ft_draw(t_main *main)
 {
 	main->img->screen = mlx_new_image(main->mlx, WIDTH, HEIGHT);
-	main->img->screen_data = (int *)mlx_get_data_addr(main->img->screen, &main->img->bpp,
-			&main->img->size_line, &main->img->endian);
+	main->img->screen_data = (int *)mlx_get_data_addr(main->img->screen,
+			&main->img->bpp, &main->img->size_line, &main->img->endian);
 	down_color(main);
 	up_color(main);
 	render_map(main);

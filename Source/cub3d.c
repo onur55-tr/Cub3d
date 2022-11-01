@@ -2,13 +2,19 @@
 
 int	close_frame(t_main *main)
 {
-	free(main->dir[0]);
-	free(main->dir[1]);
-	free(main->dir[2]);
-	free(main->dir[3]);
-	free(main->dir[4]);
-	//system("leaks cub3d");
-	mlx_destroy_window(main->mlx, main->win);
+	if (main->dir[0])
+		free(main->dir[0]);
+	if (main->dir[1])
+		free(main->dir[1]);
+	if (main->dir[2])
+		free(main->dir[2]);
+	if (main->dir[3])
+		free(main->dir[3]);
+	if (main->dir[4])
+		free(main->dir[4]);
+	system("leaks cub3d");
+	if (main->mlx)
+		mlx_destroy_window(main->mlx, main->win);
 	exit(0);
 	return (0);
 }
@@ -22,13 +28,21 @@ int	ft_array_len(char **str)
 	return (i);
 }
 
+void 	ft_init(t_main **main)
+{
+	*main = ft_calloc(sizeof(t_main), 1);
+	(*main)->img = ft_calloc(1, sizeof(t_img));
+	(*main)->v = ft_calloc(1, sizeof(t_var));
+	(*main)->mx = 300;
+	(*main)->my = 300;
+	(*main)->angle = 270;
+	//main->v.count_r = 0;
+	//main->v.count_f = 0;
+}
+
 void	ft_open_window(t_main *main, char *av)
 {
-	main = ft_calloc(sizeof(t_main), 1);
-	main->mx = 300;
-	main->my = 300;
-	main->angle = 270;
-	main->img = ft_calloc(1, sizeof(t_img));
+	ft_init(&main);
 	if (!read_file(main, av))
 		exit (1);
 	main->mlx = mlx_init();

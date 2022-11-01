@@ -4,50 +4,44 @@
 
 void	ft_clear(t_main *main)
 {
+	close_frame(main);
 	free(main->img);
 	free(main->map);
 	free(main->dir);
 	free(main);
-	//system("leaks cub3d");
-	exit(1);
 }
 
-void	ft_maps(char *str, int *i)
+void	ft_filecontrol(const char *av, t_main *main)
 {
-	while (str[*i])
+	int	i;
+
+	i = 0;
+	while (av[i])
+		i++;
+	if (av[i - 1] != 'b' || av[i - 2] != 'u' || av[i - 3] != 'c'
+		|| av[i - 4] != '.')
 	{
-		if (str[*i] == 'N' && str[*i + 1] == 'O')
-			*i += 2;
-		else if (str[*i] == 'S' && str[*i + 1] == 'O')
-			*i += 2;
-		else if (str[*i] == 'W' && str[*i + 1] == 'E')
-			*i += 2;
-		else if (str[*i] == 'E' && str[*i + 1] == 'A')
-			*i += 2;
-		else if (str[*i] == 'S')
-			*i += 1;
-		else
-			break ;
+		ft_putstr_fd("Error\nWrong file extension", 2);
+		ft_clear(main);
 	}
 }
 
-char	*ft_new_strtrim(char *line, t_main *main)
+char	*ft_new_strtrim(const char *line, t_main *main)
 {
 	int		i;
-	//char	*ret;
+
 	i = 0;
 	while (line[i])
 	{
-		ft_maps(line, &i);
-		if (line[i] == 32 || line[i] == 9)
+		ft_maps(&line, main);
+		if (line[i] == 32 || line[i] == '\t')
 			i++;
 		else
 			break ;
 	}
-	//printf("%s\n", line);
 	if (line[i] == '\n')
 		ft_clear(main);
-	//ret = ft_substr(line, i, ft_strlen(line) - i - 1);
+	//char *ret = ft_substr(line, i, ft_strlen(line) - i - 1);
 	//printf("_{%s}\n", ret);
 	return (ft_substr(line, i, ft_strlen(line) - i - 1));
 }

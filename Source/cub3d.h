@@ -36,15 +36,20 @@ typedef struct s_var
 	int	r_j;
 	int	r_x;
 	int	r_y;
+	int	count_n;
+	int	count_so;
+	int	count_w;
+	int	count_e;
+	int	count_s;
 }	t_var;
 
 typedef struct s_img
 {
 	void	*screen;
 	int		*screen_data;
-	int 	bpp;
-	int 	size_line;
-	int 	endian;
+	int		bpp;
+	int		size_line;
+	int		endian;
 
 }	t_img;
 
@@ -54,7 +59,7 @@ typedef struct	s_main
 	void	*mlx;
 	void	*win;
 	int		f[3];
-	int 	c[3];
+	int		c[3];
 	double		mx;
 	double 		my;
 	char	**dir;
@@ -64,7 +69,7 @@ typedef struct	s_main
 	void	*collactable;
 	int		angle;
 	t_img	*img;
-	t_var	v;
+	t_var	*v;
 }				t_main;
 
 int		close_frame(t_main *main);
@@ -76,6 +81,11 @@ void	get_image(t_main *main);
 void	put_player(t_main *main);
 int		ft_array_len(char **str);
 int		ft_contorller(char *av);
-char	*ft_new_strtrim(char *line, t_main *main);
+char	*ft_new_strtrim(const char *line, t_main *main);
+void	ft_filecontrol(const char *av, t_main *main);
+int		ft_isspace_tab(const char *str);
+void	ft_maps(const char **str, t_main *main);
+void	ft_variable_controller(t_main *main);
+void	ft_clear(t_main *main);
 
 #endif //CUB3D_H

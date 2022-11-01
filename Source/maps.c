@@ -41,12 +41,14 @@ void	*read_file(t_main *main, char *av)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
+	ft_filecontrol(av, main);
 	ft_contorller(av);
 	line = get_next_line(fd);
 	main->map = (char **)malloc(sizeof(char *) * 1000);
 	main->dir = (char **)malloc(sizeof(char *) * 1000);
 	while (line)
 	{
+	//	ft_maps(line, main);
 		if (line[0] == 'N' && line[1] == 'O')
 			main->dir[0] = ft_new_strtrim(line, main);
 		if (line[0] == 'S' && line[1] == 'O')
@@ -75,6 +77,7 @@ void	*read_file(t_main *main, char *av)
 			free(line);
 		line = get_next_line(fd);
 	}
+	ft_variable_controller(main);
 	main->dir[5] = NULL;
 	main->map[i] = NULL;
 	close(fd);

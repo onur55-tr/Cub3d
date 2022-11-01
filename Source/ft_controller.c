@@ -2,7 +2,51 @@
 
 #include "cub3d.h"
 
-static int	ft_isspace_tab(char *str)
+void	ft_maps(const char **str, t_main *main)
+{
+	while (**str)
+	{
+		if (**str == 'N' && *(*str + 1) == 'O')
+		{
+			*str += 2;
+			main->v->count_n = 1;
+		}
+		if (**str == 'S' && *(*str + 1) == 'O')
+		{
+			*str += 2;
+			main->v->count_so = 1;
+		}
+		if (**str == 'W' && *(*str + 1) == 'E')
+		{
+			*str += 2;
+			main->v->count_w = 1;
+		}
+		if (**str == 'E' && *(*str + 1) == 'A')
+		{
+			*str += 2;
+			main->v->count_e = 1;
+		}
+		if (**str == 'S' && !ft_isalpha(*(*str + 1)))
+		{
+			*str += 1;
+			main->v->count_s = 1;
+		}
+		else
+			break ;
+	}
+}
+
+void	ft_variable_controller(t_main *main)
+{
+	if (main->v->count_n == 0 || main->v->count_so == 0 || main->v->count_w == 0
+		|| main->v->count_e == 0 || main->v->count_s == 0)
+	{
+		ft_putstr_fd("Error\nMissing texture", 2);
+		ft_clear(main);
+	}
+}
+
+int	ft_isspace_tab(const char *str)
 {
 	int	i;
 	int	flag;

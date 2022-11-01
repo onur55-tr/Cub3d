@@ -1,6 +1,6 @@
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./minilibx -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -I./minilibx # -fsanitize=address -g
 LIBFT = libft/libft.a
 MLX = ./minilibx/libmlx.a
 MLX_DIR = minilibx
@@ -16,7 +16,6 @@ SRC = ./Source/cub3d.c \
  		./Source/ft_controller.c \
  		./Source/ft_utils.c \
 		./gnl/get_next_line.c \
-		./gnl/get_next_line_utils.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -41,7 +40,7 @@ $(MLX):
 	@if [ -d $(MLX_DIR) ]; then make -C $(MLX_DIR); fi
 
 run: all
-	./cub3d maps/map.cub
+	./cub3d maps/error.cub
 
 clean:
 	@if [ -d "libft" ]; then make -C libft clean; fi

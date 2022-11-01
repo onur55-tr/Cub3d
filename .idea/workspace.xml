@@ -23,13 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6bd775c-bd8a-402d-87d6-1f0ef560cadc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/ft_utils.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Maps/error.cu" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Maps/error.cub" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/map.cub" beforeDir="false" afterPath="$PROJECT_DIR$/Maps/map.cub" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/cub3d.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/cub3d.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ft_controller.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ft_controller.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ft_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ft_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/get_image.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/get_image.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/maps.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/maps.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/render.c" beforeDir="false" afterPath="$PROJECT_DIR$/Source/render.c" afterDir="false" />
     </list>
@@ -124,7 +126,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable"
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -208,7 +210,9 @@
       <workItem from="1666780648702" duration="7911000" />
       <workItem from="1666794606221" duration="4693000" />
       <workItem from="1666871088480" duration="7135000" />
-      <workItem from="1667222337667" duration="5916000" />
+      <workItem from="1667222337667" duration="6277000" />
+      <workItem from="1667298048300" duration="47000" />
+      <workItem from="1667298108600" duration="8328000" />
     </task>
     <servers />
   </component>
@@ -231,8 +235,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Source/maps.c</url>
-          <line>47</line>
-          <option name="timeStamp" value="16" />
+          <line>83</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
