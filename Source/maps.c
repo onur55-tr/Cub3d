@@ -44,8 +44,6 @@ void	*read_file(t_main *main, char *av)
 	ft_filecontrol(av, main);
 	ft_contorller(av);
 	line = get_next_line(fd);
-	main->map = (char **)malloc(sizeof(char *) * 1000);
-	main->dir = (char **)malloc(sizeof(char *) * 1000);
 	while (line)
 	{
 	//	ft_maps(line, main);
@@ -77,9 +75,9 @@ void	*read_file(t_main *main, char *av)
 			free(line);
 		line = get_next_line(fd);
 	}
-	ft_variable_controller(main);
 	main->dir[5] = NULL;
 	main->map[i] = NULL;
+	ft_variable_controller(main);
 	close(fd);
 	return ((void *)1);
 }
