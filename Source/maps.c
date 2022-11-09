@@ -47,27 +47,27 @@ void	*read_file(t_main *main, char *av)
 	while (line)
 	{
 	//	ft_maps(line, main);
-		if (line[0] == 'N' && line[1] == 'O')
-			main->dir[0] = ft_new_strtrim(line, main);
-		if (line[0] == 'S' && line[1] == 'O')
-			main->dir[1] = ft_new_strtrim(line, main);
-		if (line[0] == 'W' && line[1] == 'E')
-			main->dir[2] = ft_new_strtrim(line, main);
-		if (line[0] == 'E' && line[1] == 'A')
-			main->dir[3] = ft_new_strtrim(line, main);
+		if (ft_strnstr(line, "NO", ft_strlen(line)))
+			main->dir[0] = ft_new_strtrim(line, main->dir[0], main);
+		if (ft_strnstr(line, "SO", ft_strlen(line)))
+			main->dir[1] = ft_new_strtrim(line, main->dir[1], main);
+		if (ft_strnstr(line, "WE", ft_strlen(line)))
+			main->dir[2] = ft_new_strtrim(line, main->dir[2], main);
+		if (ft_strnstr(line, "EA", ft_strlen(line)))
+			main->dir[3] = ft_new_strtrim(line, main->dir[3], main);
 		if (line[0] == 'S' && !ft_isalnum(line[1]))
-			main->dir[4] = ft_new_strtrim(line, main);
-		if (line[0] == 'F')
+			main->dir[4] = ft_new_strtrim(line, main->dir[4], main);
+		if (line[0] == 'F' && !ft_isalnum(line[1]))
 		{
-			main->f[0] = ft_atoi(line + 2);
-			main->f[1] = ft_atoi(line + 6);
-			main->f[2] = ft_atoi(line + 10);
+			main->f[0] = ft_rgb_num_check(ft_atoi(line + 2), main);
+			main->f[1] = ft_rgb_num_check(ft_atoi(line + 6), main);
+			main->f[2] = ft_rgb_num_check(ft_atoi(line + 10), main);
 		}
-		if (line[0] == 'C')
+		if (line[0] == 'C' && !ft_isalnum(line[1]))
 		{
-			main->c[0] = ft_atoi(line + 2);
-			main->c[1] = ft_atoi(line + 6);
-			main->c[2] = ft_atoi(line + 10);
+			main->c[0] = ft_rgb_num_check(ft_atoi(line + 2), main);
+			main->c[1] = ft_rgb_num_check(ft_atoi(line + 6), main);
+			main->c[2] = ft_rgb_num_check(ft_atoi(line + 10), main);
 		}
 		if (line[0] == '1')
 			main->map[i++] = ft_delchar(line, ' ');

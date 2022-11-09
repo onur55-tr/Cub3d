@@ -6,6 +6,7 @@ void	ft_maps(const char **str, t_main *main)
 {
 	while (**str)
 	{
+		printf("%s", *str);
 		if (**str == 'N' && *(*str + 1) == 'O')
 		{
 			*str += 2;
@@ -26,11 +27,23 @@ void	ft_maps(const char **str, t_main *main)
 			*str += 2;
 			main->v->count_e = 1;
 		}
-		if (**str == 'S' && !ft_isalpha(*(*str + 1)))
+		if (**str == 'S' && !ft_isalnum(*(*str + 1)))
 		{
 			*str += 1;
 			main->v->count_s = 1;
 		}
+		/*if (**str == 'F' && !ft_isalnum(*(*str + 1)))
+		{
+			printf("%d", main->v->count_f);
+			*str += 1;
+			main->v->count_f = 1;
+		}
+		if (**str == 'C' && !ft_isalnum(*(*str + 1)))
+		{
+			printf("%d", main->v->count_c);
+			*str += 1;
+			main->v->count_c = 1;
+		}*/
 		else
 			break ;
 	}
@@ -38,12 +51,22 @@ void	ft_maps(const char **str, t_main *main)
 
 void	ft_variable_controller(t_main *main)
 {
-	if (main->v->count_n == 0 || main->v->count_so == 0 || main->v->count_w == 0
-		|| main->v->count_e == 0 || main->v->count_s == 0)
+	if (main->dir[0] == 0 || main->dir[1] == 0 || main->dir[2] == 0 || main->dir[3] == 0
+			|| main->dir[4] == 0 || main->f[0] == 0 || main->f[1] == 0 || main->f[2] == 0
+			|| main->c[0] == 0 || main->c[1] == 0 || main->c[2] == 0)
 	{
-		ft_putstr_fd("Error\nMissing texture", 2);
+		ft_putstr_fd("Error\nMissing parameter", 2);
 		ft_clear(main);
 	}
+}
+
+int ft_rgb_num_check(int num, t_main *main)
+{
+	if (num >= 0 && num <= 255)
+		return (num);
+	ft_putstr_fd("Error\nMissing texture", 2);
+	ft_clear(main);
+	return (-1);
 }
 
 int	ft_isspace_tab(const char *str)

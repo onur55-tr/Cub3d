@@ -26,22 +26,29 @@ void	ft_filecontrol(const char *av, t_main *main)
 	}
 }
 
-char	*ft_new_strtrim(const char *line, t_main *main)
+int	ft_isspace(int c)
 {
-	int		i;
+	return (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
+			|| c == '\v');
+}
 
-	i = 0;
-	while (line[i])
+char	*ft_new_strtrim(const char *line, char *side, t_main *main)
+{
+	char	*path;
+
+	if (side != NULL)
 	{
-		ft_maps(&line, main);
-		if (line[i] == 32 || line[i] == '\t')
-			i++;
-		else
-			break ;
-	}
-	if (line[i] == '\n')
+		ft_putstr_fd("Error\nWrong direction parameter", 2);
 		ft_clear(main);
-	char *ret = ft_substr(line, i, ft_strlen(line) - i - 1);
-	printf("_{%s}\n", ret);
-	return (ft_substr(line, i, ft_strlen(line) - i - 1));
+	}
+	while ((ft_isalpha(*line) || ft_isspace(*line)) && *line != '.')
+		++line;
+	path = ft_strtrim(line, " \n");
+	if (open(path, O_RDONLY) == -1)
+	{
+		ft_putstr_fd("Error\nWrong texture file", 2);
+		ft_clear(main);
+	}
+	return (path);
+
 }

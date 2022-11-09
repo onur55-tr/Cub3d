@@ -2,18 +2,19 @@
 
 int	close_frame(t_main *main)
 {
-	//if (main->dir[0])
+	if (main->dir[0])
 		free(main->dir[0]);
-	//if (main->dir[1])
+	if (main->dir[1])
 		free(main->dir[1]);
-	//if (main->dir[2])
+	if (main->dir[2])
 		free(main->dir[2]);
-	//if (main->dir[3])
+	if (main->dir[3])
 		free(main->dir[3]);
-	//if (main->dir[4])
+	if (main->dir[4])
 		free(main->dir[4]);
-	mlx_destroy_window(main->mlx, main->win);
-	//system("leaks cub3d");
+	if (main->win)
+        mlx_destroy_window(main->mlx, main->win);
+	system("leaks cub3d");
 	exit(0);
 	return (0);
 }
