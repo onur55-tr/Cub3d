@@ -72,6 +72,7 @@ typedef struct	s_main
 	int		angle;
 	t_img	*img;
 	t_var	*v;
+	int		wal_chk_arg;
 }				t_main;
 
 int		close_frame(t_main *main);
@@ -82,13 +83,16 @@ void	render_map(t_main *main);
 void	get_image(t_main *main);
 void	put_player(t_main *main);
 int		ft_array_len(char **str);
-int		ft_contorller(char *av);
 char	*ft_new_strtrim(const char *line, char *side, t_main *main);
 void	ft_filecontrol(const char *av, t_main *main);
-int		ft_isspace_tab(const char *str);
-void	ft_maps(const char **str, t_main *main);
-void	ft_variable_controller(t_main *main);
+int		ft_isspace_tab(char c);
+int		ft_variable_controller(char *line, t_main *main);
 void	ft_clear(t_main *main);
 int		ft_rgb_num_check(int num, t_main *main);
+int		ft_isspace(int c);
+void	ft_maps_control(t_main *main);
+void	err_prnt(char *str, t_main *main);
+void	four_wall_control(t_main *main);
+void	is_wall_leaks(t_main *main);
 
 #endif //CUB3D_H

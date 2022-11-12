@@ -2,54 +2,8 @@
 
 #include "cub3d.h"
 
-void	ft_maps(const char **str, t_main *main)
-{
-	while (**str)
-	{
-		printf("%s", *str);
-		if (**str == 'N' && *(*str + 1) == 'O')
-		{
-			*str += 2;
-			main->v->count_n = 1;
-		}
-		if (**str == 'S' && *(*str + 1) == 'O')
-		{
-			*str += 2;
-			main->v->count_so = 1;
-		}
-		if (**str == 'W' && *(*str + 1) == 'E')
-		{
-			*str += 2;
-			main->v->count_w = 1;
-		}
-		if (**str == 'E' && *(*str + 1) == 'A')
-		{
-			*str += 2;
-			main->v->count_e = 1;
-		}
-		if (**str == 'S' && !ft_isalnum(*(*str + 1)))
-		{
-			*str += 1;
-			main->v->count_s = 1;
-		}
-		/*if (**str == 'F' && !ft_isalnum(*(*str + 1)))
-		{
-			printf("%d", main->v->count_f);
-			*str += 1;
-			main->v->count_f = 1;
-		}
-		if (**str == 'C' && !ft_isalnum(*(*str + 1)))
-		{
-			printf("%d", main->v->count_c);
-			*str += 1;
-			main->v->count_c = 1;
-		}*/
-		else
-			break ;
-	}
-}
 
-void	ft_variable_controller(t_main *main)
+void	ft_maps_control(t_main *main)
 {
 	if (main->dir[0] == 0 || main->dir[1] == 0 || main->dir[2] == 0 || main->dir[3] == 0
 			|| main->dir[4] == 0 || main->f[0] == 0 || main->f[1] == 0 || main->f[2] == 0
@@ -58,6 +12,8 @@ void	ft_variable_controller(t_main *main)
 		ft_putstr_fd("Error\nMissing parameter", 2);
 		ft_clear(main);
 	}
+	four_wall_control(main);
+	is_wall_leaks(main);
 }
 
 int ft_rgb_num_check(int num, t_main *main)
@@ -69,41 +25,71 @@ int ft_rgb_num_check(int num, t_main *main)
 	return (-1);
 }
 
-int	ft_isspace_tab(const char *str)
+int	ft_isspace_tab(char c)
 {
-	int	i;
-	int	flag;
-
-	i = -1;
-	flag = 0;
-	if (!*str)
-		return (0);
-	while (str[++i])
-		if (str[i] != 32 || !(str[i] >= 9 && str[i] <= 13) || str[i] != '\n')
-			flag++;
-	return (flag);
+	return (c == ' ' || c == '\f' || c == '\r' || c == '\t'
+			|| c == '\v');
 }
 
-int	ft_contorller(char *av)
+void	four_wall_control(t_main *main)
 {
-	char	*line;
-	int		i;
-	int		fd;
+	int i;
+	int last_nbr;
 
-	i = 0;
-	fd = open(av, O_RDONLY);
-	if (fd == -1)
-		return (0);
-	line = get_next_line(fd);
-	while (line)
+	i = -1;
+	while (main->map[0][++i])
+		if (main->map[0][i] == '0')
+			err_prnt("Wall Not Closed", main);
+	last_nbr = ft_array_len(main->map) - 1;
+	i = -1;
+	while (main->map[last_nbr][++i])
+		if (main->map[last_nbr][i] == '0')
+			err_prnt("Wall Not Closed", main);
+	i = -1;
+	while (main->map[++i])
+		if (main->map[i][0] == '0')
+			err_prnt("Wall Not Closed", main);
+	i = -1;
+	while (main->map[++i])
 	{
-		if (!ft_isspace_tab(line))
-			continue ;
-		if (line[i] == 'N' && line[i + 1] == 'O')
-			i++;
-		free(line);
-		line = get_next_line(fd);
+		last_nbr = ft_strlen(main->map[i]) - 1;
+		if (main->map[i][last_nbr - 1] == '0')
+			err_prnt("Wall Not Closed", main);
 	}
-	free (line);
-	return (0);
+}
+
+static void	is_wall_open(int i, char *big_line)
+{
+	while (big_line[i])
+	{
+		if (big_line[i] == '0')
+		{
+			write(2, "Error\nRight Vertical Wall is Wrong!", 35);
+			exit(1);
+		}
+		i++;
+	}
+}
+
+void	is_wall_leaks(t_main *main)
+{
+	int i;
+	int small;
+
+	i = -1;
+	while(main->map[++i] && main->map[i + 1])
+	{
+		if (ft_strlen(main->map[i]) > ft_strlen(main->map[i + 1]))
+		{
+			small = ft_strlen(main->map[i + 1]) -2;
+			while (main->map[i][++small])
+				if (main->map[i][small] == '0')
+					err_prnt("Wall Not Closed Inline", main);
+		}
+		else if (ft_strlen(main->map[i]) < ft_strlen(main->map[i + 1]))
+		{
+			small = ft_strlen(main->map[i]);
+			is_wall_open(small, main->map[i + 1]);
+		}
+	}
 }

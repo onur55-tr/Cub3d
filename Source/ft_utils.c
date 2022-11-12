@@ -32,23 +32,48 @@ int	ft_isspace(int c)
 			|| c == '\v');
 }
 
+void	err_prnt(char *str, t_main *main)
+{
+	ft_putstr_fd("Error\n", 2);
+	ft_putendl_fd(str, 2);
+	ft_clear(main);
+}
+
+void	ft_array_cleaner(char **str)
+{
+	int i;
+
+	i = -1;
+	while (str[++i])
+		free(str[i]);
+	free(str);
+}
+
+int	ft_variable_controller(char *line, t_main *main)
+{
+	char **splitted;
+
+	splitted = ft_split(line, ' ');
+	if (ft_strlen(splitted[0]) > 2 || ft_array_len(splitted) > 2)
+	{
+		ft_array_cleaner(splitted);
+		err_prnt("Wrong direction parameter", main);
+	}
+	ft_array_cleaner(splitted);
+	return (1);
+}
+
 char	*ft_new_strtrim(const char *line, char *side, t_main *main)
 {
 	char	*path;
 
 	if (side != NULL)
-	{
-		ft_putstr_fd("Error\nWrong direction parameter", 2);
-		ft_clear(main);
-	}
+		err_prnt("Wrong direction parameter", main);
 	while ((ft_isalpha(*line) || ft_isspace(*line)) && *line != '.')
 		++line;
 	path = ft_strtrim(line, " \n");
 	if (open(path, O_RDONLY) == -1)
-	{
-		ft_putstr_fd("Error\nWrong texture file", 2);
-		ft_clear(main);
-	}
+		err_prnt("Missing texture file", main);
 	return (path);
 
 }

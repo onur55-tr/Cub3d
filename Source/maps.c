@@ -4,30 +4,19 @@
 
 #include "cub3d.h"
 
-static char	*ft_delchar(const char *str, char c)
+static char	*ft_delchar(const char *str, t_main *main)
 {
 	int i;
-	int j;
 	char *new;
 
 	i = -1;
-	j = 0;
 	while (str[++i])
-		if (str[i] != c)
-			j++;
-	new = malloc(sizeof(char) * (j + 1));
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			new[j] = str[i];
-			j++;
-		}
-		i++;
-	}
-	new[j] = '\0';
+		if(ft_isspace_tab(str[i]))
+			err_prnt("Wrong map char", main);
+	new = ft_calloc(sizeof(char), ft_strlen(str) + 1);
+	i = -1;
+	while (str[++i])
+		new[i] = str[i];
 	return (new);
 }
 
@@ -42,21 +31,30 @@ void	*read_file(t_main *main, char *av)
 	if (fd == -1)
 		return (NULL);
 	ft_filecontrol(av, main);
-	ft_contorller(av);
 	line = get_next_line(fd);
 	while (line)
 	{
-	//	ft_maps(line, main);
-		if (ft_strnstr(line, "NO", ft_strlen(line)))
+		if (!ft_strncmp(line, "NO", 2) && ft_variable_controller(line, main)) {
 			main->dir[0] = ft_new_strtrim(line, main->dir[0], main);
-		if (ft_strnstr(line, "SO", ft_strlen(line)))
+			printf("%s_\n", main->dir[0]);
+		}
+		if (!ft_strncmp(line, "SO", 2) && ft_variable_controller(line, main)) {
 			main->dir[1] = ft_new_strtrim(line, main->dir[1], main);
-		if (ft_strnstr(line, "WE", ft_strlen(line)))
+			printf("%s_\n", main->dir[1]);
+		}
+		if (!ft_strncmp(line, "WE", 2) && ft_variable_controller(line, main)) {
 			main->dir[2] = ft_new_strtrim(line, main->dir[2], main);
-		if (ft_strnstr(line, "EA", ft_strlen(line)))
+			printf("%s_\n", main->dir[2]);
+		}
+		if (!ft_strncmp(line, "EA", 2) && ft_variable_controller(line, main)) {
 			main->dir[3] = ft_new_strtrim(line, main->dir[3], main);
-		if (line[0] == 'S' && !ft_isalnum(line[1]))
+			printf("%s_\n", main->dir[3]);
+		}
+		if (line[0] == 'S' && !ft_isalnum(line[1])) {
 			main->dir[4] = ft_new_strtrim(line, main->dir[4], main);
+			printf("%s_\n", main->dir[4]);
+		}
+
 		if (line[0] == 'F' && !ft_isalnum(line[1]))
 		{
 			main->f[0] = ft_rgb_num_check(ft_atoi(line + 2), main);
@@ -70,7 +68,7 @@ void	*read_file(t_main *main, char *av)
 			main->c[2] = ft_rgb_num_check(ft_atoi(line + 10), main);
 		}
 		if (line[0] == '1')
-			main->map[i++] = ft_delchar(line, ' ');
+			main->map[i++] = ft_delchar(line, main);
 		if (*line)
 			free(line);
 		line = get_next_line(fd);
@@ -80,6 +78,6 @@ void	*read_file(t_main *main, char *av)
 	main->dir[5] = NULL;
 	main->map[i] = NULL;
 	close(fd);
-	ft_variable_controller(main);
+	ft_maps_control(main);
 	return ((void *)1);
 }

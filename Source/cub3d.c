@@ -14,7 +14,6 @@ int	close_frame(t_main *main)
 		free(main->dir[4]);
 	if (main->win)
         mlx_destroy_window(main->mlx, main->win);
-	system("leaks cub3d");
 	exit(0);
 	return (0);
 }
