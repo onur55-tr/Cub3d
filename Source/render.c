@@ -44,6 +44,7 @@ static void	down_color(t_main *main)
 void	put_player(t_main *main)
 {
 	int	i;
+	int j;
 
 	i = -1;
 	while (++i < 60)
@@ -54,6 +55,16 @@ void	put_player(t_main *main)
 		30) * (PI / 180))), main->my + (i * sin((main->angle + 30) * (PI / 180))), 0x00ff00);
 		mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle - \
 		30) * (PI / 180))), main->my + (i * sin((main->angle - 30) * (PI / 180))), 0xff);
+	}
+	i = -1;
+	while(++i < 100)
+	{
+		j = 30;
+		while (--j > 0)
+		{
+			mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle + j) * (PI / 180))), main->my + (i * sin((main->angle + j) * (PI / 180))), 0x00ff00);
+			mlx_pixel_put(main->mlx, main->win, main->mx + (i * cos((main->angle - j) * (PI / 180))), main->my + (i * sin((main->angle - j) * (PI / 180))), 0xff);
+		}
 	}
 }
 

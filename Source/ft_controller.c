@@ -58,19 +58,6 @@ void	four_wall_control(t_main *main)
 	}
 }
 
-static void	is_wall_open(int i, char *big_line)
-{
-	while (big_line[i])
-	{
-		if (big_line[i] == '0')
-		{
-			write(2, "Error\nRight Vertical Wall is Wrong!", 35);
-			exit(1);
-		}
-		i++;
-	}
-}
-
 void	is_wall_leaks(t_main *main)
 {
 	int i;
@@ -85,11 +72,6 @@ void	is_wall_leaks(t_main *main)
 			while (main->map[i][++small])
 				if (main->map[i][small] == '0')
 					err_prnt("Wall Not Closed Inline", main);
-		}
-		else if (ft_strlen(main->map[i]) < ft_strlen(main->map[i + 1]))
-		{
-			small = ft_strlen(main->map[i]);
-			is_wall_open(small, main->map[i + 1]);
 		}
 	}
 }
